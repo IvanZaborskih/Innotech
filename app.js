@@ -23,7 +23,7 @@ function findDepositName(request) {
 	const requestWords = request.split(' ');
 
 	for (let i = 0; i < requestWords.length; i++) {
-		if (requestWords[i] === 'вклад' && requestWords[i + 1]) {
+		if (requestWords[i] === 'вклад') {
 			depositName = requestWords[i + 1].toLowerCase();
 		}
 	}
@@ -51,7 +51,6 @@ function serverResponse(request) {
 
 
 let request = 'Хочу открыть вклад первый';
-
 try {
 	let depositName = findDepositName(request);
 	if (!depositName)
@@ -72,3 +71,20 @@ try {
 } catch (error) {
 	console.log('Я не понял ваш запрос');
 }
+
+// let request = prompt('Здравствуйте, введите ваш запрос');
+// try {
+// 	let depositName = findDepositName(request);
+// 	if (!depositName)
+// 		throw new Error;
+
+// 	let depositInfo = printDepositInfo(depositName);
+// 	alert(depositInfo);
+
+// 	request = prompt('Вы согласны открыть вклад?');
+
+// 	let serverRes = serverResponse(request);
+// 	alert(serverRes);
+// } catch (error) {
+// 	alert('Я не понял ваш запрос');
+// }
